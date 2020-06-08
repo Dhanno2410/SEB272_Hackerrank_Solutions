@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+#include <math.h>
+
+using namespace std;
+
+int res(int n)
+{
+    int demo[] = {100, 20, 10, 5, 1};
+    int ans = 0;
+    for (int i = 0; i < 5 && n > 0; i++)
+    {
+        int quo = n / demo[i];
+
+        n = n % demo[i];
+        ans += quo;
+    }
+    return ans;
+}
+
+int main()
+{
+    int r;
+    long n[50];
+    cin >> r;
+    for (int i = 0; i < r; i++)
+        cin >> n[i];
+
+    for (int i = 0; i < r; i++)
+        cout << res(n[i]) << endl;
+    return 0;
+}
+

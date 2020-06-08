@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define max 100
+
+void Display(int a[][max], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            cout << a[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void Pattern(int n)
+{
+
+    int size = 2 * n - 1;
+    int top = 0;
+    int back = size - 1;
+    int a[max][max];
+    while (n != 0)
+    {
+        for (int i = top; i <= back; i++)
+        {
+            for (int j = top; j <= back; j++)
+            {
+                if (i == top || i == back ||
+                    j == top || j == back)
+                    a[i][j] = n;
+            }
+        }
+        ++top;
+        --back;
+        --n;
+    }
+    Display(a, size);
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    Pattern(n);
+
+    return 0;
+}
